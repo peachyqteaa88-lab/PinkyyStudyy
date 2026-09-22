@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PinkyStudy 💗 - Alat Tulis & Jasa Daftar Pustaka</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- TOAST -->
+<div id="toast-container"></div>
+
+<!-- CONFIRM MODAL -->
+<div id="confirm-modal" class="modal hidden">
+  <div class="modal-box">
+    <h3 id="confirm-title">Konfirmasi</h3>
+    <p id="confirm-message" class="muted">Apakah kamu yakin?</p>
+    <div class="modal-actions">
+      <button class="btn btn-outline" id="confirm-cancel">Batal</button>
+      <button class="btn btn-primary" id="confirm-ok">Ya, Lanjutkan</button>
+    </div>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div id="auth-modal" class="modal hidden">
+  <div class="modal-box auth-box">
+    <button class="close-x" onclick="closeAuth()">✕</button>
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login" onclick="switchAuthTab('login')">Login</button>
+      <button class="auth-tab" data-tab="register" onclick="switchAuthTab('register')">Daftar</button>
+    </div>
+    <div id="login-form" class="auth-form">
+      <h3>Selamat Datang 💗</h3>
+      <input type="email" id="login-email" placeholder="Email">
+      <input type="password" id="login-password" placeholder="Password">
+      <button class="btn btn-primary btn-full" onclick="doLogin()">Login</button>
+      <p class="hint">Akun demo admin: <b>admin@pinky.com</b> / <b>admin123</b></p>
+    </div>
+    <div id="register-form" class="auth-form hidden">
+      <h3>Buat Akun Baru ✨</h3>
+      <input type="text" id="reg-name" placeholder="Nama Lengkap">
+      <input type="email" id="reg-email" placeholder="Email">
+      <input type="tel" id="reg-wa" placeholder="No. WhatsApp (62812xxxx)">
+      <input type="password" id="reg-password" placeholder="Password">
+      <input type="password" id="reg-password2" placeholder="Konfirmasi Password">
+      <button class="btn btn-primary btn-full" onclick="doRegister()">Daftar Sekarang</button>
+      <p class="hint">Setelah daftar, kamu langsung bisa belanja 💗</p>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="topbar" id="topbar">
+  <div class="brand" onclick="navigate('home')">
+    <span class="brand-icon">💗</span>
+    <span class="brand-name">PinkyStudy</span>
+  </div>
+  <nav class="desktop-nav">
+    <a data-page="home" onclick="navigate('home')">🏠 Beranda</a>
+    <a data-page="shop" onclick="navigate('shop')">🛍️ Jualan</a>
+    <a data-page="cart" onclick="navigate('cart')">🛒 Keranjang <span class="badge" id="cart-badge">0</span></a>
+    <a data-page="orders" onclick="navigate('orders')">📦 Pesanan</a>
+    <a data-page="profile" onclick="navigate('profile')">👤 Profil</a>
+  </nav>
+  <div class="topbar-actions">
+    <input type="text" id="global-search" class="search-input" placeholder="🔍 Cari...">
+    <button class="btn btn-outline btn-sm" id="login-btn" onclick="openAuth()">Login</button>
+    <button class="btn btn-primary btn-sm hidden" id="user-btn" onclick="navigate('profile')"></button>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main id="app"></main>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav" id="bottom-nav">
+  <a data-page="home" onclick="navigate('home')"><span>🏠</span><small>Beranda</small></a>
+  <a data-page="shop" onclick="navigate('shop')"><span>🛍️</span><small>Jualan</small></a>
+  <a data-page="cart" onclick="navigate('cart')"><span>🛒<span class="badge-mobile" id="cart-badge-m">0</span></span><small>Keranjang</small></a>
+  <a data-page="orders" onclick="navigate('orders')"><span>📦</span><small>Pesanan</small></a>
+  <a data-page="profile" onclick="navigate('profile')"><span>👤</span><small>Profil</small></a>
+</nav>
+
+<footer id="footer"></footer>
+
+<script src="app.js"></script>
+</body>
+</html>
